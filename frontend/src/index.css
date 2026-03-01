@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #f8fdf4;
+    color: #1a1a1a;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .card-sems {
+    @apply bg-white border border-stone-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-white font-semibold py-2.5 px-6 rounded-xl transition-all duration-150;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .btn-secondary {
+    @apply bg-white border border-stone-200 hover:border-amber-300 hover:bg-amber-50 text-stone-700 font-semibold py-2.5 px-6 rounded-xl transition-all duration-150;
+  }
+
+  .btn-danger {
+    @apply bg-red-50 border border-red-200 hover:bg-red-100 text-red-600 font-semibold py-2.5 px-6 rounded-xl transition-all duration-150;
+  }
+
+  .metric-val {
+    font-family: 'Fira Code', monospace;
+    @apply tabular-nums;
+  }
+
+  .nav-link {
+    @apply text-stone-600 hover:text-amber-600 font-medium transition-colors duration-150 text-sm;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .input-field {
+    @apply w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all bg-white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold text-stone-400 uppercase tracking-widest;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #fef9ec; }
+::-webkit-scrollbar-thumb { background: #fcd34d; border-radius: 3px; }
+
+/* Animations */
+.animate-fade-in { animation: fadeIn 0.4s ease-out; }
+.animate-slide-up { animation: slideUp 0.35s ease-out both; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+.stagger-1 { animation-delay: 0.04s; }
+.stagger-2 { animation-delay: 0.08s; }
+.stagger-3 { animation-delay: 0.12s; }
+.stagger-4 { animation-delay: 0.16s; }
+.stagger-5 { animation-delay: 0.20s; }
+.stagger-6 { animation-delay: 0.24s; }
+
+/* Card industrial compat alias */
+.card-industrial { @apply card-sems; }
