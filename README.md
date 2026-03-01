@@ -1,13 +1,13 @@
-# ⚡ SEMS — Smart Energy Management System
+#  SEMS — Smart Energy Management System
 
-A professional industrial IoT dashboard for real-time energy monitoring via AG-702 Gateway.
+A professional industrial IoT dashboard for real-time energy monitoring via Industrial Gateway.
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
-AG-702 Gateway ──MQTT──► Node.js Backend ──Socket.io──► React Dashboard
+Industrial Gateway ──MQTT──► Node.js Backend ──Socket.io──► React Dashboard
                               │
                               ▼
                            MongoDB
@@ -61,7 +61,7 @@ sems/
 ### Prerequisites
 - Node.js v18+
 - MongoDB (local or Atlas)
-- (Optional) A real AG-702 gateway with MQTT enabled
+- (Optional) A real Industrial gateway with MQTT enabled
 
 ### 1. Install Dependencies
 
@@ -84,7 +84,7 @@ PORT=5000
 MONGO_URI=mongodb://localhost:27017/sems
 JWT_SECRET=change_this_to_a_random_secret_key
 MQTT_BROKER=mqtt://broker.hivemq.com   # or your private broker
-MQTT_TOPIC=industrial/energy/AG702_UNIT_01
+MQTT_TOPIC=industrial/energy/Industrial_UNIT_01
 ```
 
 ### 3. Start Backend
@@ -98,8 +98,8 @@ You'll see:
 ```
 ✅ MongoDB Connected
 ✅ MQTT Connected to mqtt://broker.hivemq.com
-📡 Subscribed to topic: industrial/energy/AG702_UNIT_01
-🔧 Simulation mode active — publishing mock AG-702 data every 3s
+📡 Subscribed to topic: industrial/energy/Industrial_UNIT_01
+🔧 Simulation mode active — publishing mock Industrial data every 3s
 🚀 SEMS Server running on http://localhost:5000
 ```
 
@@ -117,7 +117,7 @@ Visit: **http://localhost:3000**
 
 ---
 
-## 📡 MQTT Payload Format (AG-702)
+## 📡 MQTT Payload Format 
 
 The backend accepts these JSON formats from your gateway:
 
@@ -167,10 +167,10 @@ The backend also supports flat formats like `voltage_L1`, `kW`, `pf`, etc.
 
 ---
 
-## 🔧 Connecting Your Real AG-702
+## 🔧 Connecting Your Real Industrial Unit
 
-1. In AG-702 configuration, set MQTT broker to your broker URL
-2. Set publish topic to `industrial/energy/AG702_UNIT_01`
+1. In Inudstrial unit configuration, set MQTT broker to your broker URL
+2. Set publish topic to `industrial/energy/Industrial_UNIT_01`
 3. Set JSON payload format matching the structure above
 4. Update `MQTT_BROKER` in `backend/.env` to match
 5. The simulation will stop as real data takes over
